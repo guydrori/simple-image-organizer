@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="125*"/>
             </Grid.ColumnDefinitions>
             <TextBox x:Name="FolderNameTextBox" Grid.Column="0" Margin="30,15,0,30"/>
-            <Button x:Name="CreateButton" Content="{x:Static resx:Resources.CreateButtonLabel}" Grid.Column="1" Margin="30,32,90,49"/>
+            <Button x:Name="CreateButton" Content="{x:Static resx:Resources.CreateButtonLabel}" Grid.Column="1" Margin="30,32,90,49" Click="OnCreateButtonClick"/>
         </Grid>
     </StackPanel>
 </Window>

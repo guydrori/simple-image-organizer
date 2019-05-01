@@ -126,6 +126,9 @@
   <data name="CurrentFolderLabel" xml:space="preserve">
     <value>Current folder:</value>
   </data>
+  <data name="EmptyNewFolderNameAlert" xml:space="preserve">
+    <value>The name of the new folder must be entered, it cannot be empty!</value>
+  </data>
   <data name="FolderSelectionTitle" xml:space="preserve">
     <value>Folder selection</value>
   </data>

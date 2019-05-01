@@ -88,6 +88,15 @@ namespace SimpleImageOrganizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The name of the new folder must be entered, it cannot be empty!.
+        /// </summary>
+        public static string EmptyNewFolderNameAlert {
+            get {
+                return ResourceManager.GetString("EmptyNewFolderNameAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Folder selection.
         /// </summary>
         public static string FolderSelectionTitle {

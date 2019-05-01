@@ -30,7 +30,7 @@
             <Separator/>
         </StackPanel>
         <StackPanel Width="612" HorizontalAlignment="Left">
-            <Image Height="331"/>
+            <Image x:Name="ImageBox" Height="331" DataContext="{Binding ElementName=MainAppWindow}" Source="{Binding Path=CurrentImage}"/>
             <Grid Height="46">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -40,8 +40,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button Margin="50,10" Content="&lt;" />
-                <Button Margin="50,10" Content="&gt;" Grid.Column="2"/>
+                <Button x:Name="PreviousImageButton" Margin="50,10" Content="&lt;" IsEnabled="False" Click="OnPreviousImageButtonClick" />
+                <Button x:Name="NextImageButton" Margin="50,10" Content="&gt;" Grid.Column="2" IsEnabled="False" Click="OnNextImageButtonClick"/>
                 <Grid Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -51,7 +51,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label DataContext="{Binding ElementName=MainAppWindow}" Content="{Binding Path=CurrentImageIndex}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label DataContext="{Binding ElementName=MainAppWindow}" Content="{Binding Path=CurrentImageDisplayIndex}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Label Content="/" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Label DataContext="{Binding ElementName=MainAppWindow}" Content="{Binding Path=ImageCount}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
@@ -70,8 +70,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="{x:Static resx:Resources.MoveToButtonLabel}" Grid.Column="0" Margin="5,5,5,15"/>
-                    <Button x:Name="NewFolderButton" Content="{x:Static resx:Resources.NewFolderButtonLabel}" Grid.Column="1" Margin="5,5,5,15" Click="OnNewFolderButtonClick"/>
+                    <Button x:Name="MoveToButton" Content="{x:Static resx:Resources.MoveToButtonLabel}" Grid.Column="0" Margin="5,5,5,15"  IsEnabled="False" Click="OnMoveToButtonClick"/>
+                    <Button x:Name="NewFolderButton" Content="{x:Static resx:Resources.NewFolderButtonLabel}" Grid.Column="1" Margin="5,5,5,15" Click="OnNewFolderButtonClick"  IsEnabled="False"/>
                 </Grid>
             </StackPanel>
         </StackPanel>
