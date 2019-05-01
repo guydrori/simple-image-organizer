@@ -29,20 +29,19 @@
             </Grid>
             <Separator/>
         </StackPanel>
-        <StackPanel Width="612" HorizontalAlignment="Left">
-            <Image x:Name="ImageBox" Height="331" DataContext="{Binding ElementName=MainAppWindow}" Source="{Binding Path=CurrentImage}"/>
-            <Grid Height="46">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
+                    <RowDefinition Height="332*"/>
+                    <RowDefinition Height="45*"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="PreviousImageButton" Margin="50,10" Content="&lt;" IsEnabled="False" Click="OnPreviousImageButtonClick" />
-                <Button x:Name="NextImageButton" Margin="50,10" Content="&gt;" Grid.Column="2" IsEnabled="False" Click="OnNextImageButtonClick"/>
-                <Grid Grid.Column="1">
+                <Image Grid.Row ="0" x:Name="ImageBox" DataContext="{Binding ElementName=MainAppWindow}" Source="{Binding Path=CurrentImage}" Margin="0"/>
+                <Grid Grid.Row ="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -51,29 +50,43 @@
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label DataContext="{Binding ElementName=MainAppWindow}" Content="{Binding Path=CurrentImageDisplayIndex}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <Label Content="/" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <Label DataContext="{Binding ElementName=MainAppWindow}" Content="{Binding Path=ImageCount}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button x:Name="PreviousImageButton" Margin="50,10" Content="&lt;" IsEnabled="False" Click="OnPreviousImageButtonClick" />
+                    <Button x:Name="NextImageButton" Margin="50,10" Content="&gt;" Grid.Column="2" IsEnabled="False" Click="OnNextImageButtonClick"/>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label DataContext="{Binding ElementName=MainAppWindow}" Content="{Binding Path=CurrentImageDisplayIndex}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Label Content="/" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Label DataContext="{Binding ElementName=MainAppWindow}" Content="{Binding Path=ImageCount}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
                 </Grid>
             </Grid>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-            <StackPanel HorizontalAlignment="Right" Width="175">
-                <ListView Height="331" DataContext="{Binding ElementName=MainAppWindow}" 
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="337*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" DataContext="{Binding ElementName=MainAppWindow}" 
                           ItemsSource="{Binding Subfolders}"
                           SelectedValue="{Binding SelectedFolderName}"
                           SelectedValuePath="ShortFolderName"
-                          DisplayMemberPath="ShortFolderName" Margin="0,0,10,0"/>
-                <Grid Height="47" Margin="0,0,10,0">
+                          DisplayMemberPath="ShortFolderName" Margin="5,0,10,0"/>
+                <Grid Grid.Row="1" Margin="0,0,10,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="MoveToButton" Content="{x:Static resx:Resources.MoveToButtonLabel}" Grid.Column="0" Margin="5,5,5,15"  IsEnabled="False" Click="OnMoveToButtonClick"/>
-                    <Button x:Name="NewFolderButton" Content="{x:Static resx:Resources.NewFolderButtonLabel}" Grid.Column="1" Margin="5,5,5,15" Click="OnNewFolderButtonClick"  IsEnabled="False"/>
+                    <Button x:Name="MoveToButton" Content="{x:Static resx:Resources.MoveToButtonLabel}" Grid.Column="0" Margin="5,5,5,10"  IsEnabled="False" Click="OnMoveToButtonClick"/>
+                    <Button x:Name="NewFolderButton" Content="{x:Static resx:Resources.NewFolderButtonLabel}" Grid.Column="1" Margin="5,5,0,10" Click="OnNewFolderButtonClick"  IsEnabled="False"/>
                 </Grid>
-            </StackPanel>
-        </StackPanel>
+            </Grid>
+        </Grid>
     </DockPanel>
 </Window>
